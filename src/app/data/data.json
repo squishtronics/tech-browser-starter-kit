@@ -1,0 +1,167 @@
+{
+  "technologies": [
+    {
+      "index": 2,
+      "name": "Industrial Base",
+      "id": "Indust",
+      "prereq1": "None",
+      "prereq2": "None",
+      "blurb": "Resources exist to be consumed. And consumed they will be, if not by\r\nthis generation then by some future. By what right does this forgotten\r\nfuture seek to deny us our birthright? None I say! Let us take what is\r\nours, chew and eat our fill.\r\n\r\n        -- CEO Nwabudike Morgan,\r\n           \u0022The Ethics of Greed\u0022\r\n",
+      "type": "technology"
+    },
+    {
+      "index": 3,
+      "name": "Information Networks",
+      "id": "InfNet",
+      "prereq1": "None",
+      "prereq2": "None",
+      "blurb": "The righteous need not cower before the drumbeat of human progress.\r\nThough the song of yesterday fades into the challenge of tomorrow,\r\nGod still watches and judges us. Evil lurks in the datalinks as it\r\nlurked in the streets of yesteryear. But it was never the streets\r\nthat were evil.\r\n\r\n        -- Sister Miriam Godwinson,\r\n           \u0022The Blessed Struggle\u0022\r\n",
+      "type": "technology"
+    },
+    {
+      "index": 4,
+      "name": "Applied Physics",
+      "id": "Physic",
+      "prereq1": "None",
+      "prereq2": "None",
+      "blurb": "Scientific theories are judged by the coherence they lend to our\r\nnatural experience and the simplicity with which they do so. The\r\ngrand principle of the heavens balances on the razor\u0027s edge of truth.\r\n\r\n        -- Commissioner Pravin Lal,\r\n           \u0022A History of Science\u0022\r\n",
+      "type": "technology"
+    },
+    {
+      "index": 9,
+      "name": "Nonlinear Mathematics",
+      "id": "Chaos",
+      "prereq1": "Physic",
+      "prereq2": "InfNet",
+      "blurb": "There are two kinds of scientific progress: the methodical\r\nexperimentation and categorization which gradually extend the\r\nboundaries of knowledge, and the revolutionary leap of genius\r\nwhich redefines and transcends those boundaries. Acknowledging\r\nour debt to the former, we yearn nonetheless for the latter.\r\n\r\n        -- Academician Prokhor Zakharov,\r\n           \u0022Address to the Faculty\u0022\r\n",
+      "type": "technology"
+    },
+    {
+      "index": 14,
+      "name": "High Energy Chemistry",
+      "id": "Chemist",
+      "prereq1": "Indust",
+      "prereq2": "Physic",
+      "blurb": "At atrociously high energy states, the properties of matter\r\nchange subtly and new miracles become possible. The Plasma\r\nAccretion process is now dangerous and difficult to control, but\r\nits products will soon become commonplace in our society.\r\n\r\n        -- Sister Miriam Godwinson,\r\n           \u0022The Lord Works\u0022\r\n",
+      "type": "technology"
+    }
+  ],
+  "weapons": [
+    {
+      "name": "Hand Weapons",
+      "shortName": "Gun",
+      "offense": 1,
+      "mode": "projectile",
+      "cost": 1,
+      "prereq": "None",
+      "type": "weapon"
+    },
+    {
+      "name": "Laser",
+      "shortName": "Laser",
+      "offense": 2,
+      "mode": "projectile",
+      "cost": 2,
+      "prereq": "Physic",
+      "type": "weapon"
+    },
+    {
+      "name": "Particle Impactor",
+      "shortName": "Impact",
+      "offense": 4,
+      "mode": "projectile",
+      "cost": 4,
+      "prereq": "Chaos",
+      "type": "weapon"
+    },
+    {
+      "name": "Colony Module",
+      "shortName": "Colony Pod",
+      "offense": 0,
+      "mode": "colonist",
+      "cost": 10,
+      "prereq": "None",
+      "type": "weapon"
+    }
+  ],
+  "armors": [
+    {
+      "name": "No Armor",
+      "shortName": "Scout",
+      "rating": 1,
+      "mode": "projectile",
+      "cost": 1,
+      "prereq": "None",
+      "type": "armor"
+    },
+    {
+      "name": "Synthmetal Armor",
+      "shortName": "Synthmetal",
+      "rating": 2,
+      "mode": "projectile",
+      "cost": 2,
+      "prereq": "Indust",
+      "type": "armor"
+    },
+    {
+      "name": "Plasma Steel Armor",
+      "shortName": "Plasma",
+      "rating": 3,
+      "mode": "binary",
+      "cost": 3,
+      "prereq": "Chemist",
+      "type": "armor"
+    }
+  ],
+  "abilities": [
+    {
+      "name": "Nerve Gas Pods",
+      "cost": 1,
+      "prereq": "Chemist",
+      "description": "Can \u002B50% offense (Atrocity)",
+      "type": "ability"
+    }
+  ],
+  "facilities": [
+    {
+      "name": "Headquarters",
+      "cost": 5,
+      "maintenance": 0,
+      "prereq": "None",
+      "effect": "Efficiency",
+      "isSecretProject": false,
+      "blurb": null,
+      "type": "facility"
+    },
+    {
+      "name": "Stockpile Energy",
+      "cost": 0,
+      "maintenance": 0,
+      "prereq": "None",
+      "effect": "Minerals to Energy",
+      "isSecretProject": false,
+      "blurb": null,
+      "type": "facility"
+    },
+    {
+      "name": "Network Node",
+      "cost": 8,
+      "maintenance": 1,
+      "prereq": "InfNet",
+      "effect": "Labs Bonus",
+      "isSecretProject": false,
+      "blurb": null,
+      "type": "facility"
+    },
+    {
+      "name": "The Merchant Exchange",
+      "cost": 20,
+      "maintenance": 0,
+      "prereq": "Indust",
+      "effect": "\u002B1 Energy Each Square Here",
+      "isSecretProject": true,
+      "blurb": "Human behavior is economic behavior. The particulars may vary,\r\nbut competition for limited resources remains a constant. Need\r\nas well as greed have followed us to the stars, and the rewards\r\nof wealth still await those wise enough to recognize this deep\r\nthrumming of our common pulse.\r\n\r\n        -- CEO Nwabudike Morgan,\r\n           \u0022The Centauri Monopoly\u0022\r\n",
+      "type": "facility"
+    }
+  ]
+}

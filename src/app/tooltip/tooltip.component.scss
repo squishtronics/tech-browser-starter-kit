@@ -1,0 +1,9 @@
+@use '../../colors';
+
+$border-width: 2px;
+
+.container {
+  border: solid $border-width;
+  color: colors.$font;
+  background-color: colors.$panel-background;
+}

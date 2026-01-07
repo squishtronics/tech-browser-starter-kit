@@ -1,0 +1,18 @@
+<div class="container flex-row flex-wrap">
+  @let visibleTypes = visibleTypes$ | async;
+  @if (visibleTypes !== null) {
+    <div class="option">
+      @let allVisible = visibleTypes.size === filterTypeOptions.length;
+      @let noneVisible = visibleTypes.size === 0;
+      <input type="checkbox" [indeterminate]="!allVisible && !noneVisible" [checked]="allVisible" (change)="toggleAll(!allVisible)" id="toggle-all">
+      <label for="toggle-all">All</label>
+    </div>
+    @for (option of filterTypeOptions; track option.type) {
+      <div class="option">
+        @let isVisible = visibleTypes.has(option.type);
+        <input type="checkbox" [checked]="isVisible" (change)="toggle(option.type, !isVisible)" [id]="'toggle-'+option.type">
+        <label [for]="'toggle-'+option.type">{{ option.name }}</label>
+      </div>
+    }
+  }
+</div>

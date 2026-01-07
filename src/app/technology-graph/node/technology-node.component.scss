@@ -1,0 +1,90 @@
+@use "../../../colors";
+
+$border-width: 2px;
+$lower-opacity: 0.5;
+
+.tech-node {
+  border: solid $border-width;
+  border-radius: 6px;
+  cursor: pointer;
+  background-color: colors.$panel-background;
+
+  &:not(.selected):not(.highlighted) {
+    &.has-selection, &.no-visible-results {
+      opacity: $lower-opacity;
+    }
+  }
+
+  &.selected, &.highlighted {
+    :not(.no-visible-results) {
+      .enabled-row:not(.filter-visible) {
+        opacity: $lower-opacity;
+        visibility: visible;
+      }
+    }
+    opacity: 1;
+  }
+
+  &.highlighted {
+    opacity: 1;
+  }
+
+  .tech-content {
+    padding-top: 4px;
+    background-color: colors.$panel-background;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+  }
+
+  .enabled-row {
+    font-size: 14px;
+    height: 20px;
+    padding-left: 6px;
+    padding-right: 6px;
+    color: colors.$font;
+    visibility: hidden;
+    vertical-align: center;
+  }
+
+  .enabled-row.filter-visible {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  border-color: colors.$font;
+
+  > .tech-header {
+    color: colors.$font;
+    border-bottom: solid colors.$font $border-width;
+  }
+
+  &.selected {
+    background-color: colors.$font;
+  }
+
+  .enabled-row.object-selected {
+    background-color: colors.$font;
+    color: colors.$background;
+  }
+}
+
+.selected > .tech-header {
+  color: colors.$background;
+}
+
+.tech-header {
+  font-size: 28px;
+  height: 36px;
+  padding-top: 4px;
+
+  .short-description {
+    font-size: 14px;
+    font-style: italic;
+    padding-bottom: 4px;
+  }
+
+  > div {
+    align-content: center;
+    text-align: center;
+  }
+}

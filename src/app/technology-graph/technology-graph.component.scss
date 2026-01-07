@@ -1,0 +1,17 @@
+@use '../../colors';
+
+polyline.highlighted {
+  opacity: 1;
+}
+
+polyline:not(.has-selection) {
+  opacity: 0.7;
+}
+
+polyline.has-selection:not(.highlighted) {
+  opacity: 0.3;
+}
+
+polyline {
+  stroke: colors.$font;
+}

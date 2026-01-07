@@ -1,0 +1,91 @@
+/* You can add global styles to this file, and also import other style files */
+@use './colors';
+@import '@angular/cdk/overlay-prebuilt.css';
+
+body {
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: colors.$background;
+}
+
+app-root {
+  height: 100%;
+}
+
+.scrollable {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-grow {
+  flex-grow: 1;
+  min-width: 0;
+  min-height: 0;
+}
+
+.flex-shrink {
+  flex-shrink: 1;
+  min-width: 0;
+  min-height: 0;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.align-right {
+  text-align: end;
+}
+
+.flex-align-center {
+  align-self: center;
+}
+
+.flex-align-start {
+  align-self: start;
+}
+
+.flex-align-end {
+  align-self: end;
+}
+
+.nowrap {
+  text-wrap: nowrap;
+  text-overflow: ellipsis;
+}
+
+.mh-6 {
+  margin-left: 6px;
+  margin-right: 6px;
+}
+
+.emphasis {
+  font-style: italic;
+  font-weight: bold;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.clickable:hover {
+  text-decoration: colors.$font underline dotted;
+  cursor: pointer;
+}

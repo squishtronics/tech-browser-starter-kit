@@ -1,0 +1,12 @@
+<div class="header flex-row">
+  <div class="flex-grow flex-align-start" [class.clickable]="selectionCandidate !== null"
+       (click)="select()">{{ name }}
+  </div>
+  <div class="align-right object-type">{{ type }}</div>
+</div>
+<div class="table">
+  <ng-content />
+</div>
+@if (blurb !== null) {
+  <div class="blurb">{{ blurb }}</div>
+}

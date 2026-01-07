@@ -1,0 +1,46 @@
+@let visibleResults = (visibleResults$ | async)!;
+@let navigatedObject = selectedObject$ | async;
+<div class="flex-column tech-node" [class.has-selection]="hasSelection"
+     [class.no-visible-results]="hasActiveFilter && visibleResults.size === 0"
+     [class.selected]="isSelected"
+     [class.highlighted]="isHighlighted" (click)="selectTechnology($event)" >
+  <div class="flex-row tech-header">
+    <div class="tech-name flex-grow flex-column">
+      <ng-template #techTooltip>
+        <sqt-object-tooltip [technologyId]="container.technology.id" [object]="container.technology" />
+      </ng-template>
+      <div class="flex-grow clickable flex-align-center" (click)="selectTechnology($event)" [sqtTooltip]="techTooltip">{{ container.technology.name }}
+      </div>
+    </div>
+  </div>
+  <div class="tech-content">
+    @for (result of container.results; track result) {
+      @if (result.type === 'enabled') {
+        <ng-template #enabledTooltip>
+          <sqt-object-tooltip [technologyId]="container.technology.id" [object]="result.object" />
+        </ng-template>
+        <div class="enabled-row flex-row clickable"
+             [class.object-selected]="navigatedObject === result.object"
+             (click)="selectObject(result.object)"
+             [sqtTooltip]="enabledTooltip"
+             [class.filter-visible]="visibleResults.has(result)">
+          <div class="nowrap flex-align-center">[{{ result.object.type[0] }}] {{ result.name }}</div>
+          <div class="flex-grow align-right nowrap flex-align-center">{{ result.details }}</div>
+        </div>
+      } @else if (result.type === 'obsolete') {
+        <ng-template #obsoleteTooltip>
+          <sqt-object-tooltip [technologyId]="container.technology.id" [object]="result.object" />
+        </ng-template>
+        <div class="enabled-row flex-row italic clickable" [sqtTooltip]="obsoleteTooltip"
+             (click)="selectObject(result.object)"
+             [class.filter-visible]="visibleResults.has(result)">
+          <div class="nowrap">- [{{ result.object.type[0] }}] {{ result.name }}</div>
+          <div class="flex-grow align-right nowrap">{{ result.details }}</div>
+        </div>
+      }
+    }
+    @if (container.results.length === 0) {
+      <div class="enabled-row flex-row filter-visible"><i>Nothing</i></div>
+    }
+  </div>
+</div>

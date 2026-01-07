@@ -1,0 +1,117 @@
+<div class="container flex-column">
+  @switch (object.type) {
+    @case ('ability') {
+      <sqt-details [selectionCandidate]="selectionCandidate" [name]="object.name" type="Ability">
+        <table>
+          <tr>
+            <td>Prereq</td>
+            <td>
+              <sqt-technology-link [id]="object.prereq" />
+            </td>
+          </tr>
+          <tr>
+            <td>Description</td>
+            <td>{{ object.description }}</td>
+          </tr>
+          <tr>
+            <td>Cost category</td>
+            <td>{{ object.cost }}</td>
+          </tr>
+        </table>
+      </sqt-details>
+    }
+    @case ('armor') {
+      <sqt-details [selectionCandidate]="selectionCandidate" [name]="object.name" type="Armor">
+        <table>
+          <tr>
+            <td>Prereq</td>
+            <td>
+              <sqt-technology-link [id]="object.prereq" />
+            </td>
+          </tr>
+          <tr>
+            <td>Short name</td>
+            <td>{{ object.shortName }}</td>
+          </tr>
+          <tr>
+            <td>Strength</td>
+            <td>{{ object.rating }} ({{ object.mode }})</td>
+          </tr>
+          <tr>
+            <td>Cost</td>
+            <td>{{ object.cost }}</td>
+          </tr>
+        </table>
+      </sqt-details>
+    }
+    @case ('facility') {
+      <sqt-details [selectionCandidate]="selectionCandidate" [name]="object.name"
+                   [type]="object.isSecretProject ? 'Secret Project' : 'Facility'"
+                   [blurb]="object.blurb">
+        <table>
+          <tr>
+            <td>Prereq</td>
+            <td>
+              <sqt-technology-link [id]="object.prereq" />
+            </td>
+          </tr>
+          <tr>
+            <td>Effect</td>
+            <td>{{ object.effect }}</td>
+          </tr>
+          <tr>
+            <td>Cost</td>
+            <td>{{ object.cost }}</td>
+          </tr>
+          <tr>
+            <td>Maintenance</td>
+            <td>{{ object.maintenance }}</td>
+          </tr>
+        </table>
+      </sqt-details>
+    }
+    @case ('weapon') {
+      <sqt-details [selectionCandidate]="selectionCandidate" [name]="object.name" type="Weapon">
+        <table>
+          <tr>
+            <td>Prereq</td>
+            <td>
+              <sqt-technology-link [id]="object.prereq" />
+            </td>
+          </tr>
+          <tr>
+            <td>Short name</td>
+            <td>{{ object.shortName }}</td>
+          </tr>
+          <tr>
+            <td>Strength</td>
+            <td>{{ object.offense }} ({{ object.mode }})</td>
+          </tr>
+          <tr>
+            <td>Cost</td>
+            <td>{{ object.cost }}</td>
+          </tr>
+        </table>
+      </sqt-details>
+    }
+    @case ('technology') {
+      <sqt-details [selectionCandidate]="selectionCandidate" [name]="object.name" type="Technology"
+                   [blurb]="object.blurb">
+        <table>
+          <tr>
+            <td>Prereq 1</td>
+            <td>
+              <sqt-technology-link [id]="object.prereq1" />
+            </td>
+          </tr>
+          <tr>
+            <td>Prereq 2</td>
+            <td>
+              <sqt-technology-link [id]="object.prereq2" />
+            </td>
+          </tr>
+        </table>
+      </sqt-details>
+    }
+  }
+</div>

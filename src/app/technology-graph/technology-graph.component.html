@@ -1,0 +1,36 @@
+<svg:svg #svg xmlns:svg="http://www.w3.org/2000/svg" [attr.width]="graphWidth" [attr.height]="graphHeight" fill="gray"
+         (click)="deselect()">
+  @let hasActiveFilter = hasActiveFilter$ | async;
+  @let selected = selected$ | async;
+  @let highlighted = highlighted$ | async;
+  @let selectedTech = selected === null ? null : selected.tech;
+  @for (edge of edges; track edge.id) {
+    <svg:g>
+      @let
+      isHighlighted = highlighted !== null && highlighted.has(edge.data.required) && highlighted.has(edge.data.enabled);
+      @let section = edge.sections![0];
+      <svg:polyline
+        [class.highlighted]="isHighlighted"
+        [class.has-selection]="selected !== null"
+        class="NONE"
+        stroke-width="2"
+        fill="none"
+        [attr.points]="getPoints(section)"
+      >
+      </svg:polyline>
+    </svg:g>
+  }
+  @for (node of nodes; track node.data.technology.id) {
+    <svg:svg [id]="'tech-node-'+node.data.technology.id" [attr.x]="node.x" [attr.y]="node.y" [attr.width]="node.width"
+             [attr.height]="node.height">
+      <svg:foreignObject [attr.width]="node.width"
+                         [attr.height]="node.height">
+        <sqt-technology-node [container]="node.data"
+                             [hasSelection]="selected !== null"
+                             [hasActiveFilter]="hasActiveFilter ?? false"
+                             [isSelected]="selectedTech === node.data.technology.id"
+                             [isHighlighted]="selectedTech !== node.data.technology.id && highlighted !== null && highlighted.has(node.data.technology.id)"></sqt-technology-node>
+      </svg:foreignObject>
+    </svg:svg>
+  }
+</svg:svg>
